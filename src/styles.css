@@ -66,12 +66,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
   background-color: #121212; /* Dark background */
   color: #fff; /* White text */
   text-align: center;
-  padding: 20px;
+  padding-top: 100px;
 }
 
 /* Heading */
@@ -137,7 +137,7 @@ body {
   }
 }
 
-  /* Quiz and Play Quiz */
+  
   /* Quiz Page Container */
 .quiz-container {
   display: flex;

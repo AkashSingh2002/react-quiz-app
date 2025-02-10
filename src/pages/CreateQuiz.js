@@ -14,17 +14,15 @@ function CreateQuiz() {
   return (
     <div className="quiz-container">
       <h2>Choose Number of Questions</h2>
-      <div className="button-group">
-        {[4, 5].map(num => (
-          <button
-            key={num}
-            className={questionCount === num ? "selected" : ""}
-            onClick={() => setQuestionCount(num)}
-          >
-            {num}
-          </button>
+      <select 
+        className="dropdown" 
+        value={questionCount} 
+        onChange={(e) => setQuestionCount(Number(e.target.value))}
+      >
+        {[4, 5, 6, 7, 8, 9, 10].map(num => (
+          <option key={num} value={num}>{num}</option>
         ))}
-      </div>
+      </select>
       <button className="btn create-btn" onClick={handleCreateQuiz}>Create Quiz</button>
     </div>
   );

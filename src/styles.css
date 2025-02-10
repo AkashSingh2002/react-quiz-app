@@ -60,54 +60,324 @@ body {
     color: white;
   }
   
-  /* Home Page */
-  .home-container {
-    margin-top: 50px;
-  }
   
-  .btn {
-    padding: 15px 25px;
-    font-size: 18px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
-  }
-  
-  .create-btn {
-    background-color: green;
-    color: white;
-  }
-  
-  .play-btn {
-    background-color: orange;
-    color: white;
-  }
-  
-  /* Quiz and Play Quiz */
-  .quiz-container {
-    max-width: 500px;
-    margin: 50px auto;
-    background-color: #444;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
+  /* Home Page Container */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #121212; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Heading */
+.home-container h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* Paragraph */
+.home-container p {
+  font-size: 18px;
+  color: #bbbbbb;
+  margin-bottom: 20px;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 15px;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+}
+
+/* Create Quiz Button */
+.create-btn {
+  background: #007bff;
+  color: white;
+}
+
+.create-btn:hover {
+  background: #0056b3;
+}
+
+/* Play Quiz Button */
+.play-btn {
+  background: #28a745;
+  color: white;
+}
+
+.play-btn:hover {
+  background: #1e7e34;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
   .button-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
+    flex-direction: column;
   }
-  
-  button.selected {
-    background-color: blue;
-    color: white;
-  }
-  
-  .result-container {
+
+  .btn {
+    width: 100%;
     text-align: center;
-    font-size: 24px;
-    margin-top: 50px;
   }
-  
+}
+
+  /* Quiz and Play Quiz */
+  /* Quiz Page Container */
+.quiz-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212; /* Dark background */
+  color: white;
+  padding: 20px;
+}
+
+/* Quiz Box */
+.quiz-box {
+  background: #1e1e1e; /* Darker box */
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+/* Question Heading */
+.quiz-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Options Container */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Option Buttons */
+.option-btn {
+  background: #333;
+  color: white;
+  border: 2px solid transparent;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.option-btn:hover {
+  background: #444;
+}
+
+/* Selected Option */
+.option-btn.selected {
+  background: #007bff;
+  border-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Next Button */
+.next-btn {
+  background: #28a745;
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  margin-top: 20px;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.next-btn:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.next-btn:hover:enabled {
+  background: #1e7e34;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .quiz-box {
+    width: 100%;
+  }
+}
+
+  /* General container styling */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #121212; /* Dark background */
+  color: #fff; /* Light text */
+}
+
+/* Heading */
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+/* Form styling */
+form {
+  background: #1e1e1e; /* Dark form background */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  width: 350px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input fields */
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #444;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #2a2a2a; /* Dark input background */
+  color: #fff; /* Light text */
+}
+
+form input::placeholder {
+  color: #bbb; /* Placeholder color */
+}
+
+/* Buttons */
+form button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff; /* Blue button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+  form {
+    width: 90%;
+  }
+}
+/* Result Page Container */
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212;
+  color: white;
+  padding: 20px;
+}
+
+/* Result Box */
+.result-box {
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Quiz Completed Heading */
+.result-box h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* Result Message */
+.result-box p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #bbbbbb;
+}
+
+/* Restart Button */
+.restart-btn {
+  background: #ff6347;
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+}
+
+.restart-btn:hover {
+  background: #e5533d;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .result-box {
+    width: 100%;
+  }
+}
+.dropdown {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #222;
+  color: white;
+  border: 1px solid #555;
+  outline: none;
+  cursor: pointer;
+}
+
+.dropdown:focus {
+  border-color: #777;
+}

@@ -15,26 +15,30 @@ function PlayQuiz() {
     }
   };
 
-  if (showResult) return <div className="result-container">Quiz Completed!</div>;
+  if (showResult) return <div className="result-container" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh", textAlign: "center" }}><h2>🎉 Quiz Completed!</h2><p>Great job on finishing the quiz.</p><button className="btn restart-btn" onClick={() => window.location.reload()}>Restart Quiz</button></div>;
 
   return (
     <div className="quiz-container">
-      <h2>{questions[currentIndex]?.question}</h2>
-      <div className="button-group">
-        {questions[currentIndex]?.options.map((option, i) => (
-          <button
-            key={i}
-            className={selectedAnswer === i ? "selected" : ""}
-            onClick={() => setSelectedAnswer(i)}
-          >
-            {option}
-          </button>
-        ))}
-      </div>
-      <button className="btn play-btn" onClick={handleNext} disabled={selectedAnswer === null}>
-        Next
-      </button>
+  <div className="quiz-box">
+    <h2>{questions[currentIndex]?.question}</h2>
+
+    <div className="options-container">
+      {questions[currentIndex]?.options.map((option, i) => (
+        <button
+          key={i}
+          className={`option-btn ${selectedAnswer === i ? "selected" : ""}`}
+          onClick={() => setSelectedAnswer(i)}
+        >
+          {option}
+        </button>
+      ))}
     </div>
+
+    <button className="btn next-btn" onClick={handleNext} disabled={selectedAnswer === null}>
+      Next
+    </button>
+  </div>
+</div>
   );
 }
 

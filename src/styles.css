@@ -403,3 +403,112 @@ form button:hover {
 .dropdown:focus {
   border-color: #777;
 }
+
+/* Overall Quiz Container */
+.quiz-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Question Header */
+.quiz-container h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Question Text */
+.quiz-container h2 {
+  font-size: 24px;  /* Increased font size */
+  font-weight: bold;
+  color: black;  /* Ensure black text */
+  margin-bottom: 20px;  /* Add margin */
+  padding: 10px;  /* Add padding for spacing */
+  background-color: #f8f9fa;  /* Light background for contrast */
+  border-radius: 8px;
+}
+
+/* Options Container */
+.quiz-container .options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+/* Option Buttons */
+.quiz-container button {
+  padding: 15px;
+  font-size: 16px;
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Normal Option */
+.quiz-container button.option {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+/* Correct Answer */
+.quiz-container button.correct {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Wrong Answer */
+.quiz-container button.wrong {
+  background-color: #FF4C4C;
+  color: white;
+}
+
+/* Disabled State */
+.quiz-container button:disabled {
+  cursor: not-allowed;
+}
+
+/* Next Button */
+.quiz-container .next-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.quiz-container .next-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Quiz Completion Result Container */
+.result-container {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+}
+
+/* Restart Button */
+.result-container .restart-btn {
+  background-color: #ff5722;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}

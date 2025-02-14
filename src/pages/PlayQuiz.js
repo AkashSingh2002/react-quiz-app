@@ -1,23 +1,19 @@
 import { useState, useEffect } from "react";
 
 function PlayQuiz() {
-  const questions = JSON.parse(localStorage.getItem("quizQuestions")) || [];
+  const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
-  const [finalScore, setFinalScore] = useState(null);
-  const [answered, setAnswered] = useState(false); // ✅ Track if user has answered
+  const [answered, setAnswered] = useState(false);
 
   useEffect(() => {
-    console.log("Score Updated:", score);
-  }, [score]);
-
-  useEffect(() => {
-    if (showResult) {
-      setFinalScore(score);
-    }
-  }, [showResult]);
+    fetch("http://localhost:5000/api/questions")
+      .then(res => res.json())
+      .then(data => setQuestions(data))
+      .catch(err => console.error("Error fetching questions:", err));
+  }, []);
 
   const handleOptionClick = (index) => {
     if (!answered) {
@@ -25,14 +21,14 @@ function PlayQuiz() {
       setAnswered(true);
 
       if (questions[currentIndex]?.correctIndex === index) {
-        setScore((prevScore) => prevScore + 1);
+        setScore(score + 1);
       }
     }
   };
 
   const handleNext = () => {
     if (currentIndex < questions.length - 1) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
+      setCurrentIndex(currentIndex + 1);
       setSelectedAnswer(null);
       setAnswered(false);
     } else {
@@ -40,44 +36,50 @@ function PlayQuiz() {
     }
   };
 
-  if (showResult && finalScore !== null) {
+  const handleRestart = () => {
+    setCurrentIndex(0);
+    setSelectedAnswer(null);
+    setShowResult(false);
+    setScore(0);
+    setAnswered(false);
+  };
+
+  if (showResult) {
     return (
-      <div className="result-container" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh", textAlign: "center" }}>
-        <h2>🎉 Quiz Completed!</h2>
-        <p>Your Score: <strong>{finalScore} / {questions.length}</strong></p>
-        <button className="btn restart-btn" onClick={() => window.location.reload()}>
-          Restart Quiz
-        </button>
+      <div className="result-container">
+        <h2>Quiz Completed!</h2>
+        <p>Your Score: {score} / {questions.length}</p>
+        <button className="restart-btn" onClick={handleRestart}>Restart Quiz</button>
       </div>
     );
   }
 
   return (
     <div className="quiz-container">
-      <div className="quiz-box">
-        <h3 className="question-count">Question {currentIndex + 1} of {questions.length}</h3>
-        <h2>{questions[currentIndex]?.question}</h2>
+      <h3>Question {currentIndex + 1} of {questions.length}</h3>
+      <h2>{questions[currentIndex]?.question}</h2> {/* Question is now inside a box */}
 
-        <div className="options-container">
-          {questions[currentIndex]?.options.map((option, i) => (
+      <div className="options-container">
+        {questions[currentIndex]?.options.map((option, i) => {
+          let buttonClass = "option";
+          if (answered) {
+            buttonClass = i === questions[currentIndex]?.correctIndex ? "correct" : "wrong";
+          }
+
+          return (
             <button
               key={i}
-              className={`option-btn 
-                ${answered && i === questions[currentIndex]?.correctIndex ? "correct" : ""}
-                ${answered && selectedAnswer === i && i !== questions[currentIndex]?.correctIndex ? "wrong" : ""}
-              `}
               onClick={() => handleOptionClick(i)}
-              disabled={answered} // ✅ Disable after selection
+              disabled={answered}
+              className={buttonClass}
             >
               {option}
             </button>
-          ))}
-        </div>
-
-        <button className="btn next-btn" onClick={handleNext} disabled={!answered}>
-          Next
-        </button>
+          );
+        })}
       </div>
+
+      <button className="next-btn" onClick={handleNext} disabled={!answered}>Next</button>
     </div>
   );
 }

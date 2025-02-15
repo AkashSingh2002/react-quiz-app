@@ -10,7 +10,7 @@ function PlayQuiz() {
   const [answered, setAnswered] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/questions")
+    fetch("/api/questions")
       .then(res => res.json())
       .then(data => setQuestions(data))
       .catch(err => console.error("Error fetching questions:", err));

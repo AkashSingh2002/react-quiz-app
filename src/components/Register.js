@@ -16,7 +16,7 @@ function Register() {
     const sendOtp = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/send-otp", { email: formData.email });
+            await axios.post("/send-otp", { email: formData.email });
             alert("OTP sent to your email!");
             setOtpSent(true);
         } catch (err) {
@@ -29,7 +29,7 @@ function Register() {
         e.preventDefault();
         console.log("Sending data:", formData); // ✅ Log request data
         try {
-            const response = await axios.post("http://localhost:5000/register", formData);
+            const response = await axios.post("/register", formData);
             console.log("Response:", response.data);
             alert("Registered Successfully!");
             navigate("/login");

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./playquiz.css"
 
 function PlayQuiz() {
   const [questions, setQuestions] = useState([]);
@@ -47,8 +48,7 @@ function PlayQuiz() {
   if (showResult) {
     return (
       <div className="result-container">
-        <h2>Quiz Completed!</h2>
-        <p>Your Score: {score} / {questions.length}</p>
+        <p className="result-score">Your Score: {score} / {questions.length}</p>
         <button className="restart-btn" onClick={handleRestart}>Restart Quiz</button>
       </div>
     );
@@ -57,13 +57,19 @@ function PlayQuiz() {
   return (
     <div className="quiz-container">
       <h3>Question {currentIndex + 1} of {questions.length}</h3>
-      <h2>{questions[currentIndex]?.question}</h2> {/* Question is now inside a box */}
+      <h2>{questions[currentIndex]?.question}</h2>
 
       <div className="options-container">
         {questions[currentIndex]?.options.map((option, i) => {
           let buttonClass = "option";
           if (answered) {
-            buttonClass = i === questions[currentIndex]?.correctIndex ? "correct" : "wrong";
+            if (i === questions[currentIndex]?.correctIndex) {
+              buttonClass = "correct"; // Full green for correct
+            } else if (i === selectedAnswer) {
+              buttonClass = "wrong"; // Full red for wrong
+            }
+          } else if (selectedAnswer === i) {
+            buttonClass = "selected"; // Yellow for selected option before checking
           }
 
           return (

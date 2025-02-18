@@ -1,98 +1,97 @@
 /* Container for the entire quiz */
 .quiz-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  /* Styling for each question card */
-  .question-card {
-    background-color: white;
-    color: black;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Question text */
-  .question-text {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 15px;
-    color: black;
-  }
-  
-  /* Option container (flex row layout) */
-  .options-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  
-  /* Individual option box */
-  .option-box {
-    background-color: #f0f0f0;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    min-width: 120px;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  /* Highlight correct answer */
-  .option-box.correct {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  /* Hover effect */
-  .option-box:hover {
-    background-color: #ddd;
-  }
-  
-  /* Form Styling */
-  .quiz-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  /* Input fields */
-  .quiz-form input,
-  .quiz-form select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-  }
-  
-  /* Submit button */
-  .quiz-form button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .quiz-form button:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Styling for each question card */
+.question-card {
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Question text */
+.question-text {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 15px;
+  color: black;
+}
+
+/* Option container (flex row layout) */
+.options-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Individual option box */
+.option-box {
+  background-color: #f0f0f0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  min-width: 120px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Highlight correct answer */
+.option-box.correct {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Hover effect */
+.option-box:hover {
+  background-color: #ddd;
+}
+
+/* Form Styling */
+.quiz-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Input fields */
+.quiz-form input,
+.quiz-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* Submit button */
+.quiz-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quiz-form button:hover {
+  background-color: #0056b3;
+}

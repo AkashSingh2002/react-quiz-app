@@ -1,129 +1,128 @@
 /* Overall Quiz Container */
 .quiz-container {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Question Header */
-  .quiz-container h3 {
-    font-size: 18px;
-    color: #333;
-  }
-  
-  /* Question Text */
-  .quiz-container h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-  }
-  
-  /* Options Container */
-  .options-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-  }
-  
-  /* Option Buttons */
-  button.option {
-    padding: 15px;
-    font-size: 16px;
-    width: 80%;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    background-color: white;
-    color: black;
-    text-align: left;
-    font-weight: 500;
-  }
-  
- /* Correct Answer */
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Question Header */
+.quiz-container h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Question Text */
+.quiz-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+/* Options Container */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+/* Option Buttons */
+button.option {
+  padding: 15px;
+  font-size: 16px;
+  width: 80%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+  color: black;
+  text-align: left;
+  font-weight: 500;
+}
+
+/* Correct Answer */
 button.correct {
-    background-color: #28a745 !important; /* Full green */
-    color: white;
-    border: 2px solid #218838;
-  }
-  
-  /* Wrong Answer */
-  button.wrong {
-    background-color: #dc3545 !important; /* Full red */
-    color: white;
-    border: 2px solid #c82333;
-  }
-  
-  /* Selected Answer (Before checking correctness) */
-  button.selected {
-    background-color: #ffc107; /* Yellow */
-    color: black;
-    border: 2px solid #e0a800;
-  }
-  
-  
-  /* Disabled State */
-  button:disabled {
-    cursor: not-allowed;
-  }
-  
-  /* Next Button */
-  button.next-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    margin-top: 15px;
-    font-size: 16px;
-  }
-  
-  button.next-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  /* Quiz Completion Result Container */
-  .result-container {
-    text-align: center;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: auto;
-  }
-  
-  /* Score at the End */
-  .result-score {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* Restart Button */
-  button.restart-btn {
-    background-color: #ff5722;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    margin-top: 15px;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
+  background-color: #28a745 !important; /* Full green */
+  color: white;
+  border: 2px solid #218838;
+}
+
+/* Wrong Answer */
+button.wrong {
+  background-color: #dc3545 !important; /* Full red */
+  color: white;
+  border: 2px solid #c82333;
+}
+
+/* Selected Answer (Before checking correctness) */
+button.selected {
+  background-color: #ffc107; /* Yellow */
+  color: black;
+  border: 2px solid #e0a800;
+}
+
+
+/* Disabled State */
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Next Button */
+button.next-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+button.next-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Quiz Completion Result Container */
+.result-container {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+}
+
+/* Score at the End */
+.result-score {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Restart Button */
+button.restart-btn {
+  background-color: #ff5722;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}

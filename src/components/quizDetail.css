@@ -1,0 +1,76 @@
+/* Quiz Detail Page Styling */
+.quiz-detail-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.quiz-title {
+    color: #333;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.quiz-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card h2 {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.quiz-card p {
+    font-size: 16px;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    height: 20px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #4CAF50;
+    transition: width 0.5s ease-in-out;
+}
+
+.score-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Chart Container */
+.chart-container {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

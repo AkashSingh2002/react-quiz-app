@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import "./playquiz.css"
+import { useAuth } from "../components/AuthContext";
+import "./playquiz.css";
 
 function PlayQuiz() {
+  const { updateQuizStats } = useAuth();
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -22,18 +24,19 @@ function PlayQuiz() {
       setAnswered(true);
 
       if (questions[currentIndex]?.correctIndex === index) {
-        setScore(score + 1);
+        setScore(prevScore => prevScore + 1);
       }
     }
   };
 
   const handleNext = () => {
     if (currentIndex < questions.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex(prevIndex => prevIndex + 1);
       setSelectedAnswer(null);
       setAnswered(false);
     } else {
       setShowResult(true);
+      updateQuizStats(questions.length, score); // Send data to AuthContext
     }
   };
 
@@ -64,12 +67,12 @@ function PlayQuiz() {
           let buttonClass = "option";
           if (answered) {
             if (i === questions[currentIndex]?.correctIndex) {
-              buttonClass = "correct"; // Full green for correct
+              buttonClass = "correct";
             } else if (i === selectedAnswer) {
-              buttonClass = "wrong"; // Full red for wrong
+              buttonClass = "wrong";
             }
           } else if (selectedAnswer === i) {
-            buttonClass = "selected"; // Yellow for selected option before checking
+            buttonClass = "selected";
           }
 
           return (

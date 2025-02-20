@@ -92,20 +92,51 @@ app.post("/register", async (req, res) => {
 
 // **User Login**
 app.post("/login", (req, res) => {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    const query = "SELECT * FROM users WHERE email = ?";
-    db.query(query, [email], async (err, results) => {
-        if (err || results.length === 0) return res.status(400).json({ message: "Invalid credentials" });
+  // Fetch only required fields to prevent unnecessary data exposure
+  const query = "SELECT id, username, email, password FROM users WHERE email = ?";
+  
+  db.query(query, [email], async (err, results) => {
+      if (err) {
+          console.error("Database error:", err);
+          return res.status(500).json({ message: "Server error. Please try again later." });
+      }
 
-        const user = results[0];
-        const passwordMatch = await bcrypt.compare(password, user.password);
-        if (!passwordMatch) return res.status(400).json({ message: "Invalid credentials" });
+      if (results.length === 0) {
+          return res.status(400).json({ message: "Invalid credentials" });
+      }
 
-        const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: "1h" });
-        res.json({ token, user: { id: user.id, username: user.username, email: user.email } });
-    });
+      const user = results[0];
+
+      try {
+          // Verify password
+          const passwordMatch = await bcrypt.compare(password, user.password);
+          if (!passwordMatch) {
+              return res.status(400).json({ message: "Invalid credentials" });
+          }
+
+          // Generate JWT token with user info
+          const token = jwt.sign(
+              { id: user.id, username: user.username, email: user.email },
+              process.env.JWT_SECRET,
+              { expiresIn: "1h" }
+          );
+
+          // Send token and user data
+          console.log("User fetched from DB:", user);
+          res.json({
+              token,
+              user: {username: user.username}
+          });
+
+      } catch (error) {
+          console.error("Login error:", error);
+          return res.status(500).json({ message: "Internal server error. Please try again." });
+      }
+  });
 });
+
 
 // **Protected Route (Example)**
 app.get("/profile", (req, res) => {

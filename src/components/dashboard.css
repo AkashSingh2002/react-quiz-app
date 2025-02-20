@@ -1,0 +1,89 @@
+/* General Dashboard Styling */
+.dashboard-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #1a1a2e;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    color: white;
+    text-align: center;
+}
+
+/* Dashboard Title */
+.dashboard-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* User Info */
+.user-info {
+    background-color: #0f3460;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.last-login {
+    font-size: 14px;
+    color: #d4d4d4;
+}
+
+/* Table Styling */
+.quiz-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.quiz-table th, .quiz-table td {
+    padding: 12px;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+}
+
+.quiz-table th {
+    background-color: #16213e;
+    color: #66d9ff;
+    font-weight: bold;
+}
+
+.quiz-table tr:hover {
+    background-color: #0f2544;
+}
+
+/* View Detail Button */
+.view-detail-btn {
+    background-color: #66d9ff;
+    color: #1a1a2e;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.view-detail-btn:hover {
+    background-color: #49b6e6;
+}
+
+/* No Activity Message */
+.no-activity {
+    color: #ff4d4d;
+    font-size: 16px;
+}
+
+/* Back Link */
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: #66d9ff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

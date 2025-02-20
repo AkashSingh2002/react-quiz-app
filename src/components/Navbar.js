@@ -1,25 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
 function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isRegistered, setIsRegistered] = useState(false);
+  const { isLoggedIn, logout } = useAuth();
+  const navigate = useNavigate(); // Initialize useNavigate
 
-  const handleRegister = () => {
-    setIsRegistered(true);
-    alert("Registered Successfully");
-  }
-  const handleLogin = () => {
-    if(!isRegistered){
-      alert("Please Register before Log in ");
-    }
-    else{
-      setIsLoggedIn(true);
-    }
-  }
   const handleLogout = () => {
-    setIsLoggedIn(false);
-  }
+    logout(); // Call the logout function to update state and remove token
+    navigate("/"); // Redirect to the home page after logging out
+  };
 
   return (
     <nav className="navbar">
@@ -31,7 +20,10 @@ function Navbar() {
             <Link to="/login" className="login-btn">Login</Link>
           </>
         ) : (
+          <div className="button-group">
+          <Link to="/dashboard" className="login-btn">Dashboard</Link>
           <button onClick={handleLogout} className="logout-btn">Logout</button>
+          </div>
         )}
       </div>
     </nav>
